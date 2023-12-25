@@ -1,0 +1,15 @@
+{
+    "name": "jsp/cr",
+    "autoload": {
+        "psr-4": {
+            "Jsp\\Cr\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jesús S.P.",
+            "email": "shamandul@gmail.com"
+        }
+    ],
+    "require": {}
+}
