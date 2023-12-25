@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 $entidad = $_GET['e'] ?? 'productos';
 $accion = $_GET['a'] ?? 'listado';
 
+
 if (!is_dir('src/views/' . $entidad)) {
     $entidad = 'productos';
 }

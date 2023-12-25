@@ -1,4 +1,4 @@
-RewriterEngine On
+RewriteEngine On
 
 RewriteRule ^([a-z]+)$ index.php?e=$1
 RewriteRule ^([a-z]+)/alta$ index.php?e=$1&a=alta
