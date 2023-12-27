@@ -6,17 +6,22 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 $entidad = $_GET['e'] ?? 'productos';
-$accion = $_GET['a'] ?? 'listado';
+$accion = $_GET['a'] ?? 'listar';
 
-
-if (!is_dir('src/views/' . $entidad)) {
-    $entidad = 'productos';
-}
-$archivo = 'listado.php';
-if (in_array($accion, ['alta', 'editar', 'borrar', 'ver'])) {
-    $archivo = 'form.php';
+$entidad = ucfirst(strtolower($entidad));
+$clase = 'Jsp\\Cr\\Controllers\\' . $entidad .'Controller';
+if (!class_exists($clase)) {
+    die('Clase no existe ' . $clase);
 }
 
-include('src/views/inc/header.php');
-include('src/views/' . $entidad . '/' . $archivo);
-include('src/views/inc/footer.php');
+if (!method_exists($clase, $accion)) {
+    die('No existe el metodo ' . $accion . ' en la clase ' . $clase);
+}
+
+
+$respuesta = $clase::$accion();
+$archivo = $respuesta['view'];
+
+include(VIEWS . '/inc/header.php');
+include(VIEWS . '/' . $archivo);
+include(VIEWS. '/inc/footer.php');

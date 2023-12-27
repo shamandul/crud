@@ -1,8 +1,8 @@
 RewriteEngine On
 
 RewriteRule ^([a-z]+)$ index.php?e=$1
-RewriteRule ^([a-z]+)/alta$ index.php?e=$1&a=alta
+RewriteRule ^([a-z]+)/nuevo$ index.php?e=$1&a=nuevo
 
-RewriteRule ^([a-z]+)/(\d+)$ index.php?e=$1&a=ver&id=$2
+RewriteRule ^([a-z]+)/(\d+)$ index.php?e=$1&a=editar&id=$2
 
-RewriteRule ^([a-z]+)/(editar|borrar|ver)/(\d+)$ index.php?e=$1&a=$2&id=$3
+RewriteRule ^([a-z]+)/(editar|borrar)/(\d+)$ index.php?e=$1&a=$2&id=$3

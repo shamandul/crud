@@ -5,19 +5,25 @@ use Jsp\Cr\Controllers\IController;
 
 class CategoriasController implements IController
 {
-    public function getAll()
+    public static function listar()
     {
-        return 'método get';
+        return [
+            'view' => 'categorias/listado.php'
+        ];
     }
-    public function find($id)
+    public static function nuevo()
     {
-        return 'método find';
+        return [
+            'view' => 'categorias/form.php'
+        ];
     }
-    public function update()
+    public static function editar()
     {
-        return 'método update';
+        return [
+            'view' => 'categorias/form.php'
+        ];
     }
-    public function delete($id)
+    public static function borrar()
     {
         return 'método delete';
     }

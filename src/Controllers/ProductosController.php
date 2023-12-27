@@ -1,23 +1,29 @@
 <?php
 namespace Jsp\Cr\Controllers;
 
-use Jsp\Cr\Controller\IControllers;
+use Jsp\Cr\Controllers\IControllers;
 
 class ProductosController implements IController
 {
-    public function getAll()
+    public static function listar()
     {
-        return 'método get';
+        return [
+            'view' => 'productos/listado.php'
+        ];
     }
-    public function find($id)
+    public static function nuevo()
     {
-        return 'método find';
+        return [
+            'view' => 'productos/form.php'
+        ];
     }
-    public function update()
+    public static function editar()
     {
-        return 'método update';
+        return [
+            'view' => 'productos/form.php'
+        ];
     }
-    public function delete($id)
+    public static function borrar()
     {
         return 'método delete';
     }

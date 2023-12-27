@@ -3,8 +3,8 @@ namespace Jsp\Cr\Controllers;
 
 interface IController
 {
-    public function getAll();
-    public function find($id);
-    public function update();
-    public function delete($id);
+    public static function listar();
+    public static function nuevo();
+    public static function editar();
+    public static function borrar();
 }
