@@ -10,7 +10,7 @@ if (!is_dir('src/views/' . $entidad)) {
     $entidad = 'productos';
 }
 $archivo = 'listado.php';
-if (in_array($accion, ['alta', 'edit'])) {
+if (in_array($accion, ['alta', 'editar', 'borrar', 'ver'])) {
     $archivo = 'form.php';
 }
 
