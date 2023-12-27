@@ -1,6 +1,6 @@
 <?php
 
-namespace Jsp\Cr\EntityModel;
+namespace Jsp\Cr\EntityModels;
 
 class Categorias
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Jsp\Cr\Controller;
+namespace Jsp\Cr\Controllers;
 
 interface IController
 {

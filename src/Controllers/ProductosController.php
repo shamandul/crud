@@ -1,7 +1,7 @@
 <?php
-namespace Jsp\Cr\Controller;
+namespace Jsp\Cr\Controllers;
 
-use Jsp\Cr\Controller\IController;
+use Jsp\Cr\Controller\IControllers;
 
 class ProductosController implements IController
 {
