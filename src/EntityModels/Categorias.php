@@ -2,33 +2,27 @@
 
 namespace Jsp\Cr\EntityModels;
 
+use PDO;
+
 class Categorias
 {
     private $id;
-    private $categoria;
+    private $nombre;
     private $descripcion;
+    private $pdo;
 
-    public function __construct($id, $categoria = '', $descripcion = '')
-    {
-        $this->id = $id;
-        $this->categoria = $categoria;
-        $this->descripcion = $descripcion;
-    }
+
     public function getId()
     {
         return $this->id;
     }
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
     public function getCategoria()
     {
-        return $this->categoria;
+        return $this->nombre;
     }
-    public function setCategoria($categoria)
+    public function setCategoria($nombre)
     {
-        $this->categoria = $categoria;
+        $this->nombre = $nombre;
     }
     public function getDescripcion()
     {
@@ -37,5 +31,26 @@ class Categorias
     public function setDescripcion($descripcion)
     {
         $this->descripcion = $descripcion;
+    }
+    public function connect()
+    {
+        $server = 'mysql:host='. DBHOST .';dbname='.DBNAME.';charset='.DBCHARSET;
+        $pdo = new PDO($server, DBUSER, DBPASSWORD);
+        $this->pdo = $pdo;
+    }
+    public function all()
+    {
+        $this->connect();
+        $stmt = $this->pdo->prepare('SELECT * FROM categorias');
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Categorias::class);
+        return $stmt->fetchAll();
+    }
+    public function delete($id)
+    {
+        $this->connect();
+        $stmt = $this->pdo->prepare('DELETE FROM categorias WHERE id = :id');
+        $stmt->execute([':id'=> $id]);
+        header("Location: /categorias");
     }
 }
