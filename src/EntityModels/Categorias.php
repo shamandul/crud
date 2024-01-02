@@ -46,6 +46,33 @@ class Categorias
         $stmt->setFetchMode(PDO::FETCH_CLASS, Categorias::class);
         return $stmt->fetchAll();
     }
+    public function insert($post)
+    {
+        $this->connect();
+        $stmt = $this->pdo->prepare('INSERT INTO categorias (nombre, descripcion) VALUES (:nombre, :descripcion)');
+        $stmt->execute([
+            ':nombre' => $post['nombre'],
+            ':descripcion' => $post['descripcion']
+        ]);
+    }
+    public function update($post, $id)
+    {
+        $this->connect();
+        $stmt = $this->pdo->prepare('UPDATE categorias SET nombre = :nombre, descripcion = :descripcion WHERE id = :id');
+        $stmt->execute([
+            ':nombre' => $post['nombre'],
+            ':descripcion' => $post['descripcion'],
+            ':id' => $id
+        ]);
+    }
+    public function find($id)
+    {
+        $this->connect();
+        $stmt = $this->pdo->prepare('SELECT * FROM categorias WHERE id = :id');
+        $stmt->execute([':id'=> $id]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Categorias::class);
+        return $stmt->fetch();
+    }
     public function delete($id)
     {
         $this->connect();
