@@ -20,7 +20,13 @@ class CategoriasController implements IController
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $categoria = new Categorias();
-            $categoria->insert($_POST);
+            $cols_name = "nombre, descripcion";
+            $values_name = ":nombre, :descripcion";
+            $replace = [
+                ':nombre' => $_POST['nombre'],
+                ':descripcion' => $_POST['descripcion']
+            ];
+            $categoria->insert($cols_name, $values_name, $replace);
             header('Location: /categorias');
             die();
         }
@@ -42,7 +48,13 @@ class CategoriasController implements IController
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $categoria = new Categorias();
-            $categoria->update($_POST, $id);
+            $columns = "nombre = :nombre, descripcion = :descripcion";
+            $replace = [
+                ':nombre' => $_POST['nombre'],
+                ':descripcion' => $_POST['descripcion'],
+                ':id' => $id
+            ];
+            $categoria->update($columns, $replace);
             header('Location: /categorias');
             die();
         }
