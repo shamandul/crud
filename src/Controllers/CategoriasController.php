@@ -24,6 +24,7 @@ class CategoriasController implements IController
             header('Location: /categorias');
             die();
         }
+
         return [
             'view' => 'categorias/form.php',
             'form' => [

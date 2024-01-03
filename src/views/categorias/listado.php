@@ -55,4 +55,8 @@
       <?php endforeach;?>
     </tbody>
   </table>
+  <div class="flex flex-row justify-start">
+    <a class="px-4 py-1 mb-2 mt-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-xl"
+              href="/categorias/nuevo">Nuevo</a>
+  </div>
 </div>
