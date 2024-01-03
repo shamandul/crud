@@ -9,4 +9,4 @@
 
 <body>
   <?php include(__DIR__ . '/nav.php'); ?>
-  <main>
+  <main class="ml-20 mr-20">

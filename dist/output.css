@@ -650,6 +650,22 @@ video {
   margin-top: 0.5rem;
 }
 
+.ml-40 {
+  margin-left: 10rem;
+}
+
+.mr-10 {
+  margin-right: 2.5rem;
+}
+
+.ml-20 {
+  margin-left: 5rem;
+}
+
+.mr-20 {
+  margin-right: 5rem;
+}
+
 .block {
   display: block;
 }
